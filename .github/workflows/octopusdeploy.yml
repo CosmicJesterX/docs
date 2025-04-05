@@ -1,0 +1,55 @@
+            - name: Instector Gadget
+  # You may pin to the exact commit or the version.
+  # uses: scaleway/action-scw-secret@7e25cfaa82b970fefe9a1d40d466578446534e69
+  uses: scaleway/action-scw-secret@v0.0.6
+  with:
+    # One or more secret names to retrieve
+    secret-names: name: Deploy to Octopus
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Scaleway Secret Manager
+        # You may pin to the exact commit or the version.
+        # uses: scaleway/action-scw-secret@7e25cfaa82b970fefe9a1d40d466578446534e69
+        uses: scaleway/action-scw-secret@v0.0.6
+        with:
+          # One or more secret names to retrieve
+          secret-names: 
+          # Scaleway access key
+          access-key: 
+          # Scaleway secret key
+          secret-key: 
+          # Scaleway default project ID
+          default-project-id: # optional
+          # Scaleway default organization ID
+          default-organization-id: # optional
+          # Scaleway default region
+          default-region: # optional, default is fr-par
+          # Scaleway default zone
+          default-zone: # optional, default is fr-par-1
+
+      # Add more steps as needed for your deployment
+    # Scaleway access key
+    access-key: 
+    # Scaleway secret key
+    secret-key: 
+    # Scaleway default project ID
+    default-project-id: # optional
+    # Scaleway default organization ID
+    default-organization-id: # optional
+    # Scaleway default region
+    default-region: # optional, default is fr-par
+    # Scaleway default zone
+    default-zone: # optional, default is fr-par-1
+          
